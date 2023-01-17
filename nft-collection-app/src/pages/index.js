@@ -151,7 +151,7 @@ export default function Home() {
       //so we'll have only read-only access
       const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi, provider);
       //call the presaleStarted from the contract
-      const _presaleEnded = await nftContract.presaleStarted();
+      const _presaleEnded = await nftContract.presaleEnded();
       //_presaleEnded is a big Number, so we'll use the lt(less than function) instead of '<'
       //Date.now()/1000 returns the current time in secs
       //we compare if the _presaleEnded timestamp is less than the current time
