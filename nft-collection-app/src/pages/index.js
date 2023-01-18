@@ -180,8 +180,10 @@ export default function Home() {
       //call the owner function from the contract
       const _owner = await nftContract.owner();
       // we will get signer now to extract the addr of currently conneted metamsk account
-      const signer = await signer.getAddress();
-      if (isAddress.toLowerCase() === _owner.toLowerCase()) {
+      const signer = await getProviderOrSigner(true);
+        //get the address associated to the signer which is connected to metamask
+      const address = await signer.getAddress();
+      if (address.toLowerCase() === _owner.toLowerCase()) {
         setIsOwner(true);
       }
     } catch (err) {
